@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Веб-клиент чата</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 20px auto; padding: 0 10px; }
+    iframe { width: 100%; height: 350px; border: 1px solid #ccc; }
+    form { display: flex; gap: 8px; margin-top: 8px; }
+    input { flex: 1; padding: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Веб-клиент чата</h1>
+
+  <!-- iframe — «окно» с другой страницей внутри этой. Там список сообщений,
+       он обновляется сам, а форма ниже при этом не трогается -->
+  <iframe src="{{ url_for('show_messages') }}"></iframe>
+
+  <!-- Обычная форма урока 21: поле text уйдёт на /send методом POST -->
+  <form method="post" action="{{ url_for('send') }}">
+    <input name="text" placeholder="Сообщение…" autocomplete="off" required autofocus>
+    <button type="submit">Отправить</button>
+  </form>
+</body>
+</html>

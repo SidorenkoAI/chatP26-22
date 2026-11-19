@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <!-- Браузер сам перезагрузит эту страницу через 2 секунды — и так всё время -->
+  <meta http-equiv="refresh" content="2">
+  <style>
+    body { font-family: sans-serif; margin: 8px; }
+    p { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <!-- Новые сообщения сверху: после перезагрузки iframe всегда показывает начало страницы -->
+  {% for text in messages|reverse %}
+    <p>{{ text }}</p>
+  {% else %}
+    <p><i>Сообщений пока нет. Напишите первым!</i></p>
+  {% endfor %}
+</body>
+</html>
